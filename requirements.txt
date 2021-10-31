@@ -1,0 +1,12 @@
+gspread
+oauth2client
+pandas
+numpy
+mip
+datetime
+icalendar
+pytz
+
+sendgrid
+pybase64
+python-dotenv
