@@ -4,7 +4,7 @@ import os
 import datetime
 from icalendar import Calendar, Event
 import pytz
-import pybase64
+import base64
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
 from dotenv import load_dotenv
@@ -206,7 +206,7 @@ def make_ical(df, dir_output, filename, member, local):
             cal.add_component(event)
 
     # カレンダーのファイルへの書き出し
-    encoded_file=pybase64.b64encode(cal.to_ical()).decode()
+    encoded_file=base64.b64encode(cal.to_ical()).decode()
     if local:
         with open(os.path.join(dir_output, filename +member + '.ics'), mode = 'wb') as f:
             f.write(cal.to_ical())
